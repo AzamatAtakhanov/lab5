@@ -13,8 +13,7 @@ public class ScreenTimeTracker {
             new Category("Video or streaming", Type.Entertainment),
     };
     public static void main(String[] args) {
-        boolean keepGoing = true;
-        while (keepGoing){
+        while (true){
             // Main menu
             displayMainMenu();
 
@@ -26,14 +25,13 @@ public class ScreenTimeTracker {
                 viewStatistics();
             } else if (choice == categories.length + 2) {
                 System.out.println("Screen-time tracker closing...");
-                keepGoing = false;
+                return;
             } else{
                 System.out.println("Invalid option. Choose a number between 1 and " + (categories.length + 2));
                 enterToContinue();
             }
         }
     }
-
     private static void addScreenTime(Category category) {
         System.out.print("Enter " + category.getTitle().toLowerCase() + " minutes: ");
         int minutes = sc.nextInt();
